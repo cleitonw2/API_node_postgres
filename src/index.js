@@ -1,15 +1,11 @@
 const express = require('express');
 const app = express();
 
-const { User } = require('./app/models');
+const publicRouter = require('./app/routes/users');
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.post('/', (req, res) => {
-    const { name, email, password } = req.body;
-    User.create({ name: name, email: email, password: password });
-    res.json('usuário cadastrado com sucesso');
-});
+app.use(publicRouter);
 
 app.listen(3000);
