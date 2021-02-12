@@ -42,4 +42,27 @@ router.post('/login', async (req, res) => {
     }
 });
 
+router.put('/', jwt.verify, async (req, res) => {
+    const { name, email } = req.body;
+    const id = req.id;
+    try {
+        await User.update({ name: name, email: email }, { where: { id: id } });
+        res.status(200).json('updated user');
+    } catch (error) {
+        res.status(500).json({ error: 'error updating the user' });
+    }
+});
+
+router.patch('/password', jwt.verify, async (req, res) => {
+    const { password } = req.body;
+    const id = req.id;
+    const passwordHash = await bcrypt.hash(password, 10);
+    try {
+        await User.update({ password: passwordHash }, { where: { id: id } });
+        res.status(200).json({ msg: 'Password successfully updated' });
+    } catch (error) {
+        res.status(500).json({ error: 'not possible to update the password' });
+    }
+});
+
 module.exports = router;

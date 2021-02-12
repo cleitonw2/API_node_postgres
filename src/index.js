@@ -1,11 +1,11 @@
 const express = require('express');
 const app = express();
 
-const publicRouter = require('./app/routes/users');
+const router = require('./app/routes/users');
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.use(publicRouter);
+app.use(router);
 
 app.listen(3000);
