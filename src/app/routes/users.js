@@ -65,4 +65,14 @@ router.patch('/password', jwt.verify, async (req, res) => {
     }
 });
 
+router.delete('/', jwt.verify, async (req, res) => {
+    const id = req.id;
+    try {
+        await User.destroy({ where: { id: id } });
+        res.status(200).json('user successfully deleted');
+    } catch (error) {
+        res.status(500).json({ error: 'error when delete user' });
+    }
+});
+
 module.exports = router;
