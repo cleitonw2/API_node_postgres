@@ -1,0 +1,163 @@
+{
+	"info": {
+		"_postman_id": "dac8e2a6-0bf9-425c-80e9-211f8ac7bdc5",
+		"name": "api_postgres",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "registering_users",
+			"item": [
+				{
+					"name": "New_user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"addName\",\r\n    \"email\":\"addEmail\",\r\n    \"password\": \"addPassword\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/register",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "apikey"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"\",\r\n    \"password\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_user",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoyOCwiaWF0IjoxNjEzMTcwMzk2LCJleHAiOjE2MTQwMzQzOTZ9.sIh_TOSEc3A_HTclg5sakx9Ko7nNx5JvN0g9uztu1NE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"\",\r\n    \"email\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_password ",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoyOCwiaWF0IjoxNjEzMTcwMzk2LCJleHAiOjE2MTQwMzQzOTZ9.sIh_TOSEc3A_HTclg5sakx9Ko7nNx5JvN0g9uztu1NE",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/password",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_user",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoxMCwiaWF0IjoxNjEzMTcyODE2LCJleHAiOjE2MTQwMzY4MTZ9.aTcUrvAQ9Q31jsQ2WIQUnT4j5t1BtZ2Flb-FRyUOc-U",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3001",
+							"host": [
+								"localhost"
+							],
+							"port": "3001"
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
